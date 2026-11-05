@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#b0907d" />
+<meta name="description" content="Nathalia Hirata Beauty - Beleza, sobrancelhas, cílios e maquiagem." />
+<title>Nathalia Hirata Beauty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+:root { --ink:#282523; --muted:#766e67; --paper:#faf8f5; --paper-deep:#f1ece6; --line:#dfd6ce; --taupe:#a98d7b; --taupe-deep:#826a5c; --white:#fff; --shadow:0 24px 70px rgba(64,47,35,.10); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; color:var(--ink); background:var(--paper); font-family:"DM Sans",sans-serif; }
+button,a { font:inherit; }
+button { cursor:pointer; }
+a { color:inherit; text-decoration:none; }
+svg.ico { width:1em; height:1em; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex:none; }
+.container { width:min(1180px,calc(100% - 40px)); margin:0 auto; }
+
+.header { position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:50; width:min(1180px,calc(100% - 28px)); border-radius:999px; background:linear-gradient(135deg,rgba(255,255,255,.58),rgba(255,255,255,.2)); -webkit-backdrop-filter:blur(22px) saturate(190%) brightness(1.05); backdrop-filter:blur(22px) saturate(190%) brightness(1.05); border:1px solid rgba(255,255,255,.7); box-shadow:0 10px 40px rgba(64,47,35,.13),inset 0 1px 1px rgba(255,255,255,.95),inset 0 -1px 1px rgba(255,255,255,.4),inset 0 0 24px rgba(255,255,255,.28); transition:box-shadow .3s,background .3s; }
+.header::before { content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(180deg,rgba(255,255,255,.55),transparent 50%); opacity:.55; pointer-events:none; }
+.header.scrolled { background:linear-gradient(135deg,rgba(255,255,255,.72),rgba(255,255,255,.32)); box-shadow:0 14px 50px rgba(64,47,35,.18),inset 0 1px 1px #fff,inset 0 -1px 1px rgba(255,255,255,.4); }
+.header .container { width:100%; padding:0 14px 0 24px; position:relative; }
+.nav { min-height:64px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.brand { display:inline-flex; align-items:center; gap:10px; letter-spacing:2px; font-size:11px; font-weight:600; }
+.brand small { display:block; color:var(--taupe-deep); letter-spacing:4px; font-size:8px; margin-top:2px; }
+.brand-mark { font-family:"Playfair Display",serif; font-style:italic; font-size:31px; font-weight:500; letter-spacing:-4px; color:var(--taupe-deep); padding-right:5px; }
+.nav-links { display:flex; align-items:center; gap:30px; font-size:13px; color:var(--muted); }
+.nav-links a:hover { color:var(--ink); }
+.nav-instagram { display:inline-flex; align-items:center; gap:7px; padding:10px 15px; border:1px solid var(--line); color:var(--ink)!important; }
+.menu-button { display:none; border:0; background:transparent; color:var(--ink); padding:8px; font-size:24px; line-height:1; }
+
+.hero { min-height:660px; position:relative; display:flex; align-items:center; overflow:hidden; border-bottom:1px solid var(--line); }
+.hero-glow { position:absolute; border-radius:50%; opacity:.75; pointer-events:none; }
+.glow-one { width:600px; height:600px; right:-270px; top:-180px; background:radial-gradient(circle,#e9dfd6,transparent 68%); }
+.glow-two { width:420px; height:420px; left:-240px; bottom:-230px; background:radial-gradient(circle,#e9dfd6,transparent 68%); }
+.hero-grid { position:relative; display:grid; grid-template-columns:1.2fr .8fr; align-items:center; gap:70px; padding:150px 0 90px; }
+.eyebrow,.section-kicker { display:flex; align-items:center; gap:8px; color:var(--taupe-deep); letter-spacing:3px; font-size:10px; font-weight:600; margin-bottom:20px; }
+h1,h2,h3 { margin:0; font-weight:400; }
+h1 { font-size:clamp(48px,6vw,82px); line-height:.98; letter-spacing:-2.8px; max-width:700px; }
+h1 em,h2 em { font-family:"Playfair Display",serif; color:var(--taupe-deep); font-weight:400; }
+.hero-copy > p { max-width:580px; color:var(--muted); font-size:16px; line-height:1.8; margin:28px 0 30px; }
+.hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+.button { min-height:52px; padding:0 20px; display:inline-flex; align-items:center; justify-content:center; gap:9px; font-size:11px; text-transform:uppercase; letter-spacing:1.4px; transition:.25s ease; }
+.primary { background:var(--ink); color:#fff; border:1px solid var(--ink); }
+.primary:hover { background:var(--taupe-deep); border-color:var(--taupe-deep); transform:translateY(-2px); }
+.ghost { border:1px solid var(--line); }
+.ghost:hover { border-color:var(--ink); background:#fff; }
+.hero-card { min-height:410px; background:linear-gradient(145deg,#fff,#f1ebe5); box-shadow:var(--shadow); padding:34px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; }
+.hero-card::before { content:""; width:330px; height:330px; position:absolute; border:1px solid rgba(169,141,123,.22); border-radius:50%; }
+.hero-card-top,.hero-card p,.hero-card small { position:relative; z-index:1; letter-spacing:3px; font-size:9px; color:var(--muted); margin:0; }
+.hero-monogram { position:relative; z-index:1; font-family:"Playfair Display",serif; font-style:italic; font-size:110px; color:var(--taupe-deep); letter-spacing:-14px; margin:20px 15px 4px 0; }
+.hero-card-line { width:60px; height:1px; background:var(--taupe); margin:20px 0; position:relative; z-index:1; }
+
+.intro { padding:100px 0; background:var(--white); }
+.intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:90px; align-items:end; }
+h2 { font-size:clamp(35px,4vw,57px); line-height:1.08; letter-spacing:-1.8px; }
+.intro p,.section-header > p { color:var(--muted); line-height:1.9; font-size:15px; margin:0; }
+
+.services { padding:100px 0; }
+.section-header { display:grid; grid-template-columns:1fr .6fr; align-items:end; gap:60px; margin-bottom:40px; }
+.filters { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:34px; }
+.filter { border:1px solid var(--line); background:transparent; padding:11px 15px; font-size:12px; color:var(--muted); transition:.2s; }
+.filter:hover,.filter.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+.service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.service-card { min-height:295px; display:flex; flex-direction:column; padding:25px; background:rgba(255,255,255,.65); border:1px solid var(--line); transition:transform .25s,box-shadow .25s,background .25s; }
+.service-card:hover { transform:translateY(-5px); box-shadow:var(--shadow); background:#fff; }
+.service-meta { display:flex; justify-content:space-between; align-items:center; gap:10px; color:var(--taupe-deep); font-size:10px; letter-spacing:1.3px; text-transform:uppercase; }
+.service-meta strong { font-size:12px; color:var(--ink); letter-spacing:.5px; white-space:nowrap; }
+.service-card h3 { font-size:23px; margin:25px 0 6px; }
+.service-detail { color:var(--taupe-deep); }
+.service-card p { color:var(--muted); font-size:13px; line-height:1.7; margin:12px 0 20px; }
+.learn-more { margin-top:auto; display:flex; align-items:center; gap:7px; width:fit-content; border:0; background:transparent; padding:0; color:var(--ink); font-size:12px; font-weight:600; }
+.learn-more:hover { color:var(--taupe-deep); }
+
+.cta { padding:80px 0; background:var(--paper-deep); }
+.cta-box { display:flex; align-items:center; justify-content:space-between; gap:40px; }
+.cta-box h2 { max-width:700px; }
+.light { white-space:nowrap; }
+
+footer { padding:35px 0; border-top:1px solid var(--line); }
+.footer-content { display:flex; justify-content:space-between; align-items:center; gap:25px; color:var(--muted); font-size:11px; }
+.footer-content p { margin:0; }
+.footer-brand { color:var(--ink); }
+.back-top { display:flex; align-items:center; gap:6px; }
+
+.modal-backdrop { position:fixed; inset:0; z-index:100; background:rgba(28,25,22,.55); display:none; place-items:center; padding:20px; animation:fade .2s ease; }
+.modal-backdrop.open { display:grid; }
+.modal { width:min(100%,560px); max-height:min(720px,calc(100vh - 40px)); overflow-y:auto; position:relative; background:var(--paper); padding:42px; box-shadow:0 30px 90px rgba(0,0,0,.22); animation:rise .25s ease; }
+.modal-close { position:absolute; right:16px; top:16px; width:38px; height:38px; border:1px solid var(--line); background:#fff; display:grid; place-items:center; font-size:18px; }
+.modal h2 { font-size:42px; margin-right:30px; }
+.modal-price { display:inline-block; margin:17px 0; padding:7px 10px; background:var(--paper-deep); font-weight:600; font-size:13px; }
+.modal-summary { color:var(--muted); line-height:1.8; margin:0; }
+.modal h4 { margin:25px 0 12px; font-size:14px; }
+.modal ul { padding-left:18px; color:var(--muted); line-height:1.9; font-size:14px; margin:0; }
+.modal-button { margin-top:28px; width:100%; }
+@keyframes fade { from{opacity:0} to{opacity:1} }
+@keyframes rise { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* Refinamentos visuais */
+body { background:radial-gradient(1200px 600px at 100% -10%,#efe4da,transparent 60%),radial-gradient(900px 500px at -10% 40%,#f3e9e0,transparent 60%),var(--paper); }
+::selection { background:var(--taupe); color:#fff; }
+:focus-visible { outline:2px solid var(--taupe-deep); outline-offset:3px; }
+section[id] { scroll-margin-top:90px; }
+.button,.filter,.nav-instagram { border-radius:999px; }
+.button { box-shadow:0 8px 24px rgba(40,37,35,.08); }
+.primary { background:linear-gradient(135deg,#3a3532,var(--ink)); }
+.primary:hover { background:linear-gradient(135deg,var(--taupe),var(--taupe-deep)); box-shadow:0 12px 30px rgba(130,106,92,.35); }
+.nav-instagram { background:rgba(255,255,255,.5); }
+.hero-glow { animation:drift 14s ease-in-out infinite alternate; }
+.glow-two { animation-delay:-6s; }
+@keyframes drift { from{transform:translate(0,0) scale(1)} to{transform:translate(-30px,25px) scale(1.12)} }
+.hero-stats { display:flex; flex-wrap:wrap; gap:34px; margin-top:46px; padding-top:26px; border-top:1px solid var(--line); }
+.hero-stats strong { display:block; font-family:"Playfair Display",serif; font-size:30px; font-weight:500; color:var(--taupe-deep); }
+.hero-stats span { font-size:11px; letter-spacing:1.6px; text-transform:uppercase; color:var(--muted); }
+.hero-visual { position:relative; }
+.hero-card { border-radius:200px 200px 28px 28px; min-height:480px; animation:float 7s ease-in-out infinite; border:1px solid rgba(255,255,255,.9); }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.chip { position:absolute; z-index:2; display:inline-flex; align-items:center; gap:7px; padding:11px 16px; border-radius:999px; font-size:12px; font-weight:500; background:linear-gradient(135deg,rgba(255,255,255,.7),rgba(255,255,255,.3)); -webkit-backdrop-filter:blur(16px) saturate(180%); backdrop-filter:blur(16px) saturate(180%); border:1px solid rgba(255,255,255,.8); box-shadow:0 10px 30px rgba(64,47,35,.14),inset 0 1px 1px #fff; animation:float 6s ease-in-out infinite; }
+.chip .ico { color:var(--taupe-deep); }
+.chip-a { left:-14px; top:44%; }
+.chip-b { right:-10px; bottom:12%; animation-delay:-3s; }
+.intro { background:linear-gradient(180deg,#fff,#fdfbf9); }
+.service-card { border-radius:22px; position:relative; overflow:hidden; background:rgba(255,255,255,.72); animation:rise .5s ease both; }
+.service-card::after { content:""; position:absolute; left:0; right:0; bottom:0; height:3px; background:linear-gradient(90deg,var(--taupe),var(--taupe-deep)); transform:scaleX(0); transform-origin:left; transition:transform .35s; }
+.service-card:hover::after { transform:scaleX(1); }
+.service-meta strong { background:var(--paper-deep); padding:5px 10px; border-radius:999px; }
+.learn-more .ico { transition:transform .2s; }
+.learn-more:hover .ico { transform:translateX(4px); }
+.modal { border-radius:28px; }
+.modal-close { border-radius:50%; }
+.modal-price { border-radius:999px; }
+.modal-backdrop { -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); }
+.cta { background:linear-gradient(135deg,#efe5dc,#e6d9cd); }
+
+.location { padding:100px 0; background:#fff; }
+.location-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:60px; align-items:center; }
+.location h2 { margin-bottom:26px; }
+.place { color:var(--muted); line-height:1.8; font-size:15px; margin:0 0 28px; }
+.place strong { display:block; color:var(--ink); font-size:18px; font-family:"Playfair Display",serif; font-weight:500; margin-bottom:4px; }
+.map-actions { display:flex; flex-wrap:wrap; gap:12px; }
+.map-frame { border-radius:28px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow); min-height:380px; background:var(--paper-deep); }
+.map-frame iframe { width:100%; height:100%; min-height:380px; border:0; display:block; filter:saturate(.8) sepia(.12); }
+
+.reveal { opacity:0; transform:translateY(26px); transition:opacity .8s ease,transform .8s ease; }
+.reveal.in { opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; } .reveal { opacity:1; transform:none; } }
+
+@media (max-width:850px) {
+  .menu-button { display:block; z-index:3; }
+  .nav-links { display:none; position:absolute; left:0; right:0; top:calc(100% + 10px); border-radius:26px; background:linear-gradient(135deg,rgba(255,255,255,.75),rgba(255,255,255,.42)); -webkit-backdrop-filter:blur(24px) saturate(190%); backdrop-filter:blur(24px) saturate(190%); border:1px solid rgba(255,255,255,.75); box-shadow:0 18px 50px rgba(64,47,35,.18),inset 0 1px 1px #fff; padding:16px; flex-direction:column; align-items:stretch; gap:5px; }
+  .location-grid { grid-template-columns:1fr; gap:36px; }
+  .hero-card { min-height:400px; }
+  .chip-a { left:8px; } .chip-b { right:8px; }
+  .nav-links.open { display:flex; }
+  .nav-links a { padding:14px 5px; }
+  .nav-instagram { justify-content:center; margin-top:8px; }
+  .hero { min-height:auto; }
+  .hero-grid,.intro-grid,.section-header { grid-template-columns:1fr; gap:40px; }
+  .hero-grid { padding:130px 0 70px; }
+  .service-grid { grid-template-columns:repeat(2,1fr); }
+  .section-header > p { max-width:500px; }
+}
+@media (max-width:580px) {
+  .container { width:min(100% - 28px,1180px); }
+  .nav { min-height:58px; }
+  .header .container { padding:0 10px 0 18px; }
+  .hero-grid { padding:115px 0 60px; }
+  .hero-stats { gap:22px; margin-top:34px; }
+  .map-frame,.map-frame iframe { min-height:320px; }
+  .location { padding:70px 0; }
+  h1 { font-size:52px; }
+  .hero-copy > p { font-size:15px; }
+  .hero-actions { flex-direction:column; }
+  .hero-actions .button { width:100%; }
+  .hero-card { min-height:360px; padding:25px; }
+  .hero-monogram { font-size:90px; }
+  .intro,.services { padding:70px 0; }
+  .service-grid { grid-template-columns:1fr; }
+  .service-card { min-height:255px; }
+  .cta-box,.footer-content { flex-direction:column; align-items:flex-start; }
+  .light { width:100%; }
+  .footer-content { gap:15px; }
+  .modal { padding:32px 24px; }
+  .modal h2 { font-size:34px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></symbol>
+</svg>
+
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="#inicio"><span class="brand-mark">nh</span><span>NATHALIA HIRATA<small>BEAUTY</small></span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#localizacao">Localização</a>
+      <a class="nav-instagram" href="https://www.instagram.com/nathaliahiratabeauty?rpxt=OXR3bTJzZjd3bW1k" target="_blank" rel="noreferrer">Instagram <svg class="ico"><use href="#i-insta"/></svg></a>
+    </nav>
+    <button class="menu-button" id="menuBtn" aria-label="Abrir menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero-glow glow-one"></div>
+    <div class="hero-glow glow-two"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow"><svg class="ico"><use href="#i-spark"/></svg> BELEZA COM PERSONALIDADE</div>
+        <h1>Seu olhar.<br /><em>Sua melhor versão.</em></h1>
+        <p>Procedimentos personalizados para realçar sua beleza com delicadeza, técnica e atenção a cada detalhe.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#servicos">Conheça os serviços <svg class="ico"><use href="#i-arrow"/></svg></a>
+          <a class="button ghost" href="https://www.instagram.com/nathaliahiratabeauty?rpxt=OXR3bTJzZjd3bW1k" target="_blank" rel="noreferrer"><svg class="ico"><use href="#i-insta"/></svg> Ver Instagram</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>Campinas</strong><span>São Paulo</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-top">NATHALIA HIRATA BEAUTY</div>
+          <div class="hero-monogram">nh</div>
+          <p>BELEZA • CUIDADO • AUTOESTIMA</p>
+          <span class="hero-card-line"></span>
+          <small>Catálogo online de procedimentos</small>
+        </div>
+        <span class="chip chip-a"><svg class="ico"><use href="#i-spark"/></svg> Lash Lifting</span>
+        <span class="chip chip-b"><svg class="ico"><use href="#i-spark"/></svg> Brow Lamination</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro" id="sobre">
+    <div class="container intro-grid">
+      <div>
+        <div class="section-kicker">ATENDIMENTO PERSONALIZADO</div>
+        <h2>Beleza que respeita <em>quem você é.</em></h2>
+      </div>
+      <p>Cada procedimento é uma oportunidade para destacar seus traços e valorizar sua identidade. Explore o catálogo, conheça cada serviço e encontre o cuidado ideal para você.</p>
+    </div>
+  </section>
+
+  <section class="services" id="servicos">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">CATÁLOGO</div>
+          <h2>Encontre seu <em>procedimento.</em></h2>
+        </div>
+        <p>Toque em “Saiba mais” para conhecer os detalhes e benefícios.</p>
+      </div>
+      <div class="filters" id="filters" aria-label="Categorias de serviços"></div>
+      <div class="service-grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="location" id="localizacao">
+    <div class="container location-grid">
+      <div>
+        <div class="section-kicker">LOCALIZAÇÃO</div>
+        <h2>Venha nos <em>visitar.</em></h2>
+        <p class="place"><strong>Instituto Kell</strong>Rua Francisco Xavier de Souza Júnior, 87<br />Jardim das Paineiras, Campinas - SP<br />CEP 13092-300</p>
+        <div class="map-actions">
+          <a class="button primary" href="https://maps.apple.com/place?map=explore&amp;place-id=I154744E8463DB75F&amp;address=Rua+Francisco+Xavier+de+Souza+J%C3%BAnior%2C+87%2C+Jardim+das+Paineiras%2C+Campinas+-+SP%2C+13092-300%2C+Brazil&amp;coordinate=-22.901590%2C-47.033527&amp;name=Instituto+Kell&amp;_provider=9902" target="_blank" rel="noreferrer">Abrir no Apple Maps <svg class="ico"><use href="#i-arrow"/></svg></a>
+          <a class="button ghost" href="https://www.google.com/maps/search/?api=1&amp;query=-22.901590,-47.033527" target="_blank" rel="noreferrer">Google Maps</a>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe title="Mapa do Instituto Kell" loading="lazy" referrerpolicy="no-referrer" src="https://www.openstreetmap.org/export/embed.html?bbox=-47.0385%2C-22.9055%2C-47.0285%2C-22.8975&amp;layer=mapnik&amp;marker=-22.901590%2C-47.033527"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta-box">
+      <div>
+        <div class="section-kicker">ACOMPANHE O TRABALHO</div>
+        <h2>Inspiração, resultados e <em>beleza todos os dias.</em></h2>
+      </div>
+      <a class="button primary light" href="https://www.instagram.com/nathaliahiratabeauty?rpxt=OXR3bTJzZjd3bW1k" target="_blank" rel="noreferrer"><svg class="ico"><use href="#i-insta"/></svg> @nathaliahiratabeauty</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div class="brand footer-brand"><span class="brand-mark">nh</span><span>NATHALIA HIRATA<small>BEAUTY</small></span></div>
+    <p>© <span id="year"></span> Nathalia Hirata Beauty. Todos os direitos reservados.</p>
+    <a href="#inicio" class="back-top">Voltar ao topo <svg class="ico"><use href="#i-up"/></svg></a>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="backdrop">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="modal-close" id="mClose" aria-label="Fechar">✕</button>
+    <div class="section-kicker" id="mCat"></div>
+    <h2 id="mTitle"></h2>
+    <div class="modal-price" id="mPrice"></div>
+    <p class="modal-summary" id="mSummary"></p>
+    <h4>O que este procedimento pode proporcionar?</h4>
+    <ul id="mBenefits"></ul>
+    <a class="button primary modal-button" href="https://www.instagram.com/nathaliahiratabeauty?rpxt=OXR3bTJzZjd3bW1k" target="_blank" rel="noreferrer">Tirar dúvidas pelo Instagram <svg class="ico"><use href="#i-arrow"/></svg></a>
+  </div>
+</div>
+
+<script>
+const services = [
+  { category:"Sobrancelhas", name:"Brow Lamination", price:"R$ 140,00", summary:"Alinha e modela os fios para criar sobrancelhas mais preenchidas.", benefits:["Fios visualmente mais volumosos","Formato alinhado e elegante","Realça a expressão"] },
+  { category:"Sobrancelhas", name:"Buço", price:"R$ 35,00", summary:"Remoção cuidadosa dos pelos da região acima dos lábios.", benefits:["Acabamento delicado","Visual mais limpo","Procedimento rápido"] },
+  { category:"Pele", name:"Dermaplaning", price:"R$ 120,00", summary:"Esfoliação superficial que remove células mortas e pelos finos.", benefits:["Pele com toque mais macio","Melhor aparência da textura","Prepara a pele para maquiagem"] },
+  { category:"Sobrancelhas", name:"Design de Sobrancelha", price:"R$ 65,00", summary:"Modelagem personalizada respeitando os traços naturais do rosto.", benefits:["Harmoniza a expressão","Formato personalizado","Visual mais definido"] },
+  { category:"Sobrancelhas", name:"Design com Henna", price:"R$ 70,00", summary:"Design associado à pigmentação temporária para destacar as sobrancelhas.", benefits:["Mais definição visual","Preenche pequenas falhas","Resultado prático no dia a dia"] },
+  { category:"Sobrancelhas", name:"Design com Coloração", price:"R$ 80,00", summary:"Coloração dos fios para valorizar o desenho e a tonalidade das sobrancelhas.", benefits:["Fios visualmente destacados","Mais uniformidade","Aparência natural"] },
+  { category:"Cílios", name:"Cílios Efeito Rímel", price:"R$ 180,00", summary:"Extensão que busca um olhar definido e semelhante ao efeito de máscara de cílios.", benefits:["Olhar mais marcante","Definição no dia a dia","Efeito elegante"] },
+  { category:"Cílios", name:"Cílios Efeito Sirena", price:"R$ 100,00", summary:"Estilo pensado para criar um olhar expressivo e personalizado.", benefits:["Visual diferenciado","Destaque para os olhos","Mapeamento personalizado"] },
+  { category:"Cílios", name:"Cílios Efeito Fox", price:"R$ 200,00", summary:"Mapeamento que valoriza o alongamento visual do olhar.", benefits:["Olhar alongado","Efeito moderno","Resultado personalizado"] },
+  { category:"Cílios", name:"Cílios Efeito Brasileiro", price:"R$ 150,00", summary:"Técnica com textura e destaque para um resultado cheio de personalidade.", benefits:["Mais presença no olhar","Textura visual","Estilo personalizado"] },
+  { category:"Lábios & Cílios", name:"Hydra Gloss", price:"R$ 100,00", summary:"Tratamento de hidratação e cuidado para valorizar a aparência dos lábios.", benefits:["Aspecto mais hidratado","Lábios com aparência saudável","Sensação de cuidado"] },
+  { category:"Lábios & Cílios", name:"Lash Lifting", price:"R$ 180,00", summary:"Curvatura dos cílios naturais para um olhar mais aberto.", benefits:["Valoriza os cílios naturais","Olhar mais aberto","Praticidade na rotina"] },
+  { category:"Sobrancelhas", name:"Reconstrução de Sobrancelha", price:"R$ 500,00", detail:"Pacote com 4 sessões.", summary:"Plano de cuidados voltado à recuperação e valorização das sobrancelhas.", benefits:["Acompanhamento em sessões","Cuidado personalizado","Valorização gradual dos fios"] },
+  { category:"Sobrancelhas", name:"Nano Fios Personalizado", price:"R$ 500,00", summary:"Procedimento personalizado para criar um efeito de fios e maior definição.", benefits:["Resultado personalizado","Aparência detalhada","Valorização do desenho"] },
+  { category:"Maquiagem", name:"Maquiagem", price:"R$ 160,00", summary:"Produção personalizada para valorizar seus traços em ocasiões especiais.", benefits:["Acabamento profissional","Estilo adaptado ao evento","Valorização da beleza natural"] }
+];
+
+const $ = id => document.getElementById(id);
+const categories = ["Todos", ...new Set(services.map(s => s.category))];
+let active = "Todos";
+
+function el(tag, props = {}, ...children) {
+  const n = Object.assign(document.createElement(tag), props);
+  n.append(...children);
+  return n;
+}
+
+function renderFilters() {
+  $("filters").replaceChildren(...categories.map(c =>
+    el("button", { className: c === active ? "filter active" : "filter", textContent: c, onclick: () => { active = c; renderFilters(); renderGrid(); } })
+  ));
+}
+
+function renderGrid() {
+  const list = active === "Todos" ? services : services.filter(s => s.category === active);
+  $("grid").replaceChildren(...list.map(s => {
+    const btn = el("button", { className: "learn-more", onclick: () => openModal(s) }, "Saiba mais ");
+    btn.insertAdjacentHTML("beforeend", '<svg class="ico"><use href="#i-arrow"/></svg>');
+    return el("article", { className: "service-card" },
+      el("div", { className: "service-meta" }, el("span", { textContent: s.category }), el("strong", { textContent: s.price })),
+      el("h3", { textContent: s.name }),
+      ...(s.detail ? [el("small", { className: "service-detail", textContent: s.detail })] : []),
+      el("p", { textContent: s.summary }),
+      btn
+    );
+  }));
+}
+
+function openModal(s) {
+  $("mCat").textContent = s.category;
+  $("mTitle").textContent = s.name;
+  $("mPrice").textContent = s.price;
+  $("mSummary").textContent = s.summary;
+  $("mBenefits").replaceChildren(...s.benefits.map(b => el("li", { textContent: b })));
+  $("backdrop").classList.add("open");
+}
+const closeModal = () => $("backdrop").classList.remove("open");
+
+$("backdrop").addEventListener("mousedown", e => { if (e.target === $("backdrop")) closeModal(); });
+$("mClose").addEventListener("click", closeModal);
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+$("menuBtn").addEventListener("click", () => {
+  const open = $("navLinks").classList.toggle("open");
+  $("menuBtn").textContent = open ? "✕" : "☰";
+});
+$("navLinks").addEventListener("click", e => {
+  if (e.target.closest("a")) { $("navLinks").classList.remove("open"); $("menuBtn").textContent = "☰"; }
+});
+
+$("year").textContent = new Date().getFullYear();
+
+const header = document.querySelector(".header");
+const onScroll = () => header.classList.toggle("scrolled", scrollY > 20);
+addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+
+const io = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll(".hero-copy,.intro-grid > *,.section-header,.location-grid > *,.cta-box").forEach(n => { n.classList.add("reveal"); io.observe(n); });
+renderFilters();
+renderGrid();
+</script>
+</body>
+</html>
